@@ -133,8 +133,8 @@ export default function CosmeticTherapy() {
       <nav className="fixed top-0 left-0 right-0 z-50 shadow-lg">
         {/* Top Bar - High Visibility Contact */}
         <div className="bg-black text-white py-3 px-4 text-center text-xs md:text-sm">
-          <span>✨ Call Now for a Consultation: </span>
-          <span className="font-bold text-base md:text-lg mx-2 tracking-wider">+1 (555) 123-4567</span>
+          <span>✨ Call  </span>
+          <span className="font-bold text-base md:text-lg mx-2 tracking-wider">+(91) 123-4567</span>
         </div>
         
         {/* Main Navigation */}
@@ -177,7 +177,7 @@ export default function CosmeticTherapy() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-0">
           
           {/* Left: Image Carousel */}
-          <div className="relative h-[450px] md:h-[650px] overflow-hidden">
+          <div className="relative h-[200px] md:h-[500px] overflow-hidden">
             {heroSlides.map((img, idx) => (
               <div key={idx} className={`absolute inset-0 transition-opacity duration-1000 ${idx === currentHeroSlide ? 'opacity-100' : 'opacity-0'}`}>
                 <img src={img} alt={`Slide ${idx + 1}`} className="w-full h-full object-cover" />
@@ -318,55 +318,51 @@ export default function CosmeticTherapy() {
 </section>
 
 
-      {/* Reviews Section - With Decoupled Single Carousel */}
+{/* Reviews Section - Responsive & Mobile-Friendly */}
 <section id="reviews" className="relative px-4 py-20 border-b-4 border-gray-100 bg-white">
-  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-2xl">
-    
-    {/* Left: Info */}
-    <div className="bg-black text-white p-8 md:p-12 flex flex-col justify-center h-[400px] md:h-[550px]">
-      <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-2xl">
+
+    {/* Left: Info Section */}
+    <div className="bg-black text-white p-6 sm:p-8 md:p-12 flex flex-col justify-center min-h-[350px] sm:min-h-[400px] md:min-h-[550px]">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-4 sm:mb-6 leading-tight">
         Real Patients, Real Experiences
       </h2>
-      <p className='text-gray-300 mb-8 text-lg'>Hear directly from our satisfied clients about their journey to renewed confidence. We are proudly 5-star rated.</p>
+      <p className='text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg'>
+        Hear directly from our satisfied clients about their journey to renewed confidence. We are proudly 5-star rated.
+      </p>
       <a
         href="https://www.google.com/search?q=Dr.+Sarah+Mitchell+reviews"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-3 bg-white text-black font-semibold px-6 py-4 rounded-full hover:bg-gray-200 transition shadow-lg w-fit text-base tracking-wider"
+        className="inline-flex items-center gap-3 bg-white text-black font-semibold px-5 py-3 sm:px-6 sm:py-4 rounded-full hover:bg-gray-200 transition shadow-lg w-fit text-sm sm:text-base tracking-wider"
       >
-        <div className="flex gap-1">
-          {[1, 2, 3, 4, 5].map((star) => (
-            // Using gold hex code for luxury aesthetic
-            <Star key={star} className="w-5 h-5 fill-[#D4AF37] text-[#D4AF37]" />
-          ))}
-        </div>
         <span>Read All Google Reviews</span>
       </a>
     </div>
 
-    {/* Right: Review Carousel */}
-    <div className="relative h-[400px] md:h-[550px] px - 5 overflow-hidden bg-gray-50 p-10 md:p-20">
+    {/* Right: Carousel Section */}
+    <div className="relative bg-gray-50 px-4 py-10 sm:px-6 sm:py-14 md:px-10 md:py-20 min-h-[350px] sm:min-h-[400px] md:min-h-[550px] overflow-hidden">
       {googleReviews.map((review, idx) => (
         <div
           key={idx}
-          className={`absolute inset-0 transition-opacity duration-700 flex flex-col justify-center items-center text-center py-6 px-4 md:py-10 md:px-12 ${
+          className={`absolute inset-0 transition-opacity duration-700 flex flex-col justify-center items-center text-center px-2 sm:px-6 ${
             idx === currentReviewSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          } bg-gray-50`}
+          }`}
         >
           {/* Review Text */}
-          <h4 className="font-serif italic text-2xl md:text-3xl mb-4 md:mb-6 text-black leading-snug max-h-[180px] overflow-hidden">
+          <h4 className="font-serif italic text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6 text-black leading-snug max-h-[180px] overflow-hidden">
             "{review.review}"
           </h4>
 
           {/* Rating */}
-          <div className="flex justify-center gap-1 mb-2 md:mb-4">
+          <div className="flex justify-center gap-1 mb-2 sm:mb-4">
             {[...Array(review.rating)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 fill-black text-black" />
+              <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-black text-black" />
             ))}
           </div>
 
           {/* Reviewer Info */}
-          <p className="text-lg md:text-xl font-semibold mb-1 text-black tracking-wider">{review.name}</p>
+          <p className="text-base sm:text-lg md:text-xl font-semibold mb-1 text-black tracking-wider">{review.name}</p>
           <p className="text-sm md:text-base text-gray-500">{review.date}</p>
         </div>
       ))}
@@ -374,26 +370,28 @@ export default function CosmeticTherapy() {
       {/* Carousel Controls */}
       <button
         onClick={() => setCurrentReviewSlide((prev) => (prev - 1 + googleReviews.length) % googleReviews.length)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-gray-100 p-3 rounded-full transition shadow-lg z-20 border border-gray-200"
+        className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-gray-100 p-2 sm:p-3 rounded-full transition shadow-lg z-20 border border-gray-200"
         aria-label="Previous Review"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
       <button
         onClick={() => setCurrentReviewSlide((prev) => (prev + 1) % googleReviews.length)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-gray-100 p-3 rounded-full transition shadow-lg z-20 border border-gray-200"
+        className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-gray-100 p-2 sm:p-3 rounded-full transition shadow-lg z-20 border border-gray-200"
         aria-label="Next Review"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
-      {/* Navigation Dots */}
+      {/* Dots */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {googleReviews.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentReviewSlide(idx)}
-            className={`h-2 rounded-full transition-all ${idx === currentReviewSlide ? 'bg-black w-8' : 'bg-black/50 w-2'}`}
+            className={`h-2 rounded-full transition-all ${
+              idx === currentReviewSlide ? 'bg-black w-6' : 'bg-black/40 w-2'
+            }`}
             aria-label={`Go to review ${idx + 1}`}
           />
         ))}
@@ -406,7 +404,7 @@ export default function CosmeticTherapy() {
       {/* Contact Form */}
       <section id="contact" className="py-20 px-4 border-b-4 border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4">Schedule Your Private Consultation</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-center py-5 mb-4">Make a Query</h2>
 
           
           <div className="bg-gray-50 rounded-2xl shadow-2xl p-8 md:p-12 border-4 border-gray-200">
@@ -440,58 +438,86 @@ export default function CosmeticTherapy() {
                 <textarea name="message" value={formData.message} onChange={handleInputChange} rows={5} className="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-black focus:ring-2 focus:ring-black/20 focus:outline-none resize-none bg-white transition" placeholder="Tell us about your goals and availability..." required></textarea>
               </div>
               <button type="submit" className="w-full bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 transition text-lg shadow-xl hover:shadow-2xl tracking-wider">
-                Submit Consultation Request
+                Submit 
               </button>
             </form>
           </div>
         </div>
       </section>
 
-      {/* Clinics - Stacked as Drawers/Accordions */}
-      <section className="py-20 px-4 bg-white">
-        <h3 className="text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-black">
-          Visit Our World-Class Clinics
-        </h3>
+{/* Clinics - Modern Accordion */}
+<section className="py-20 px-4 bg-white w-full">
+  <h3 className="text-4xl md:text-5xl font-serif font-bold text-center mb-16 text-black">
+    Chambers
+  </h3>
 
-        <div className="flex flex-col items-center max-w-3xl mx-auto space-y-0 border-t-4 border-black shadow-xl rounded-2xl overflow-hidden">
-          {clinicLocations.map((clinic, idx) => (
-            <div key={idx} className={`w-full border-b border-gray-300 last:border-b-0 ${openLocation === idx ? 'bg-gray-50' : 'bg-white'}`}>
-              <button
-                onClick={() => setOpenLocation(openLocation === idx ? null : idx)}
-                className="w-full py-6 px-6 flex items-center justify-between hover:bg-gray-100 transition focus:outline-none"
-                aria-expanded={openLocation === idx}
+  <div className="w-full max-w-4xl mx-auto space-y-4">
+    {clinicLocations.map((clinic, idx) => (
+      <div
+        key={idx}
+        className={`w-full border border-gray-200 rounded-lg shadow-sm transition-all duration-300 ${
+          openLocation === idx ? 'bg-gray-50' : 'bg-white'
+        }`}
+      >
+        {/* Accordion Header */}
+        <button
+          onClick={() => setOpenLocation(openLocation === idx ? null : idx)}
+          className="w-full flex items-center justify-between px-6 py-5 text-left text-black hover:bg-gray-100 transition rounded-t-lg focus:outline-none"
+          aria-expanded={openLocation === idx}
+        >
+          <h4 className="text-lg md:text-xl font-semibold">{clinic.name}</h4>
+          <ChevronRight
+            className={`w-5 h-5 transform transition-transform ${
+              openLocation === idx ? 'rotate-90' : ''
+            }`}
+          />
+        </button>
+
+        {/* Accordion Content */}
+        <div
+          className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${
+            openLocation === idx ? 'max-h-screen py-4' : 'max-h-0 py-0'
+          }`}
+        >
+          <div className="text-gray-700 text-sm md:text-base space-y-2 border-t border-gray-200 pt-4">
+            <p>
+              <strong className="text-black">Address:</strong> {clinic.address}
+            </p>
+            <p>
+              <strong className="text-black">Hours:</strong> {clinic.hours}
+            </p>
+            <p>
+              <strong className="text-black">Phone:</strong>{' '}
+              <a
+                href={`tel:${clinic.phone}`}
+                className="text-blue-600 underline hover:text-blue-800 transition"
               >
-                <h4 className="text-xl md:text-2xl font-semibold text-black tracking-wide">{clinic.name}</h4>
-                <ChevronRight
-                  className={`w-6 h-6 text-black transition-transform ${
-                    openLocation === idx ? 'rotate-90' : 'rotate-0'
-                  }`}
-                />
-              </button>
-
-              {/* Clinic Detail Content */}
-              <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openLocation === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="px-6 pb-6 pt-0 text-left bg-gray-50 border-t border-gray-200">
-                  <div className="space-y-3 text-gray-700 text-base md:text-lg">
-                    <p className="font-medium"><strong className="text-black">Address:</strong> {clinic.address}</p>
-                    <p className="font-medium"><strong className="text-black">Hours:</strong> {clinic.hours}</p>
-                    <p className="font-medium"><strong className="text-black">Phone:</strong> <a href={`tel:${clinic.phone}`} className='underline hover:text-black transition'>{clinic.phone}</a></p>
-                    <p className="font-medium"><strong className="text-black">Email:</strong> <a href={`mailto:${clinic.email}`} className='underline hover:text-black transition'>{clinic.email}</a></p>
-                  </div>
-                  <a 
-                    href={`https://maps.google.com/?q=${encodeURIComponent(clinic.address)}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block text-black font-semibold underline hover:text-gray-700 transition text-sm tracking-wider"
-                  >
-                    Get Directions (Opens in new tab)
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+                {clinic.phone}
+              </a>
+            </p>
+            <p>
+              <strong className="text-black">Email:</strong>{' '}
+              <a
+                href={`mailto:${clinic.email}`}
+                className="text-blue-600 underline hover:text-blue-800 transition"
+              >
+                {clinic.email}
+              </a>
+            </p>
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(clinic.address)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block pt-2 text-sm font-medium text-blue-700 underline hover:text-blue-900 transition"
+            >
+              Get Directions (Opens in new tab)
+            </a>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-black text-white text-center py-12 px-4">
